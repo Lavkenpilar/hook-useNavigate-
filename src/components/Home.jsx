@@ -19,19 +19,34 @@ export default function Home () {
         {id:9, nombre:"Opción9"},
         {id:10, nombre:"Opción10"},
     ]
+    console.log (opciones[2].id)
+  // Función para manejar la selección
     const manejarSeleccion = (event) => {
         setSeleccion (event.target.value)
+
+      }
+// Función para manejar la redirección
+const manejarBusqueda = () => {
+
+   
+    if (seleccion == opciones[2].id) {
+        // si la selección corresponde al id valido entonces
+        
+            navigate(`/personajes/`) 
+        }
+      else {
+      
+      navigate(`/NotFound/`)
+
+
     }
-    const irAPersonajes=()=>{
-    navigate(`/personajes/${seleccion}`) 
-    }
+}
 
 return (
     <div className="mt-5">
         <h1>React Router II</h1> 
         <select
-        type="number"
-        value={seleccion}
+         value={seleccion}
         onChange= {manejarSeleccion}>    
         <option value=""> Selecciona...</option> {/*opcion por defecto*/}
         {opciones.map ( (opcion)=>(
@@ -40,6 +55,6 @@ return (
             </option>
        ))}       
         </select>      
-        <button onDoubleClick={ irAPersonajes }>Buscar</button>
+        <button onDoubleClick={ manejarBusqueda }>Buscar</button>
     </div>
 ) }
