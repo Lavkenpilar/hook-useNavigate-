@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function Home () {
-    //const [id, setId] = useState ("")
+// const [id, setId] = useState ("")
     const [seleccion, setSeleccion] = useState("")
     const navigate = useNavigate()
     
@@ -28,8 +28,9 @@ export default function Home () {
 // Función para manejar la redirección
 const manejarBusqueda = () => {
 
-   
-    if (seleccion == opciones[2].id) {
+   navigate (`/personajes/${seleccion}`)
+
+   /* if (seleccion == opciones[2].id) {
         // si la selección corresponde al id valido entonces
         
             navigate(`/personajes/`) 
@@ -39,7 +40,7 @@ const manejarBusqueda = () => {
       navigate(`/NotFound/`)
 
 
-    }
+    }*/
 }
 
 return (
@@ -55,6 +56,6 @@ return (
             </option>
        ))}       
         </select>      
-        <button onDoubleClick={ manejarBusqueda }>Buscar</button>
+        <button onClick={ manejarBusqueda }>Buscar</button>
     </div>
 ) }
